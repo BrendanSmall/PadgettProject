@@ -1,0 +1,274 @@
+
+---
+title: "yuanhaoliu2v"
+author: "yuanhao"
+date: "March 25, 2019"
+output:
+  word_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(waring = FALSE, message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(ggplot2)
+library(scales)
+```
+
+```{r}
+data <- read_csv('C:/Users/liuyu/Desktop/padgett project scattertext/data code results for March1/chapter2change.csv')
+data
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = no_faction2_no_office_faction, y = no_faction2_office_faction, color = ((no_faction2_no_office_faction - no_faction2_office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "no_faction2_no_office_faction" , y = "no_faction2_office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = RI_no_office_faction, y = RI_office_faction, color = ((RI_no_office_faction - RI_office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "RI_no_office_faction" , y = "RI_office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = AL_no_office_faction, y = AL_office_faction, color = ((AL_no_office_faction - AL_office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "AL_no_office_faction" , y = "AL_office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = P.G._no_office_faction, y = P.G._office_faction, color = ((P.G._no_office_faction - P.G._office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.00165, height = 0.00165),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "P.G._no_office_faction" , y = "P.G._office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = no_faction_no_office_faction, y = no_faction_office_faction, color = ((no_faction_no_office_faction - no_faction_office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "no_faction_no_office_faction" , y = "no_faction_office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = Civic_no_office_faction, y = Civic_office_faction, color = ((Civic_no_office_faction - Civic_office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "Civic_no_office_faction" , y = "Civic_office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = RI_faction, y = no_faction2_faction, color = ((RI_faction - no_faction2_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "RI_faction" , y = "no_faction2_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = AL_faction, y = no_faction2_faction, color = ((AL_faction - no_faction2_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "AL_faction" , y = "no_faction2_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = AL_faction, y = RI_faction, color = ((AL_faction - RI_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "AL_faction" , y = "RI_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = no_office_faction, y = office_faction, color = ((no_office_faction - office_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "no_office_faction" , y = "office_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = Civic_faction, y = P.G._faction, color = ((Civic_faction - P.G._faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "Civic_faction" , y = "P.G._faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = P.G._faction, y = no_faction_faction, color = ((P.G._faction - no_faction_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "P.G._faction" , y = "no_faction_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
+
+```{r, fig.height = 10, fig.width = 10}
+data1 <- data[1:15,]
+data1
+ggplot(data, aes(x = Civic_faction, y = no_faction_faction, color = ((Civic_faction - no_faction_faction)*200))) +
+  geom_abline(color = "red", lty = 2, slop = 1, intercept = 0) +
+  geom_jitter(size = 1, alpha = 0.5, width = 0.001, height = 0.001) +
+  geom_point(data = data1, color = 'red', size = 1) +
+  geom_text(aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015), size = 3) +
+  geom_text(data = data1, aes(label = `key words`), position = position_jitter(width=0.0015, height = 0.0015),  size = 3, color = 'red') +
+  theme_bw() +
+  scale_x_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_y_continuous(expand = c(0,0), limits = c(-0.002, 0.04), labels = percent_format()) +
+  scale_color_gradient2(low = 'green', mid = 'grey50', high = 'orange') +
+  theme(legend.position="none") +
+  labs(x = "Civic_faction" , y = "no_faction_faction",
+       title = "Key Words in chapter 2",
+       subtitle = "key words highlight")
+```
