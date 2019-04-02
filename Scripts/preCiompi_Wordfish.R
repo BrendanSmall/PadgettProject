@@ -8,8 +8,8 @@ library(plyr)
 library(quanteda)
 library(ggplot2)
 
-setwd("C:\\Users\\Benja\\Box Sync\\_PHD\\_Florence")
-data <- read.csv("data - input\\TblWordFish_FullDB.csv", stringsAsFactors = F) #"preCiompi_wordFrequenciesPerSpeech_AddData2.csv"
+setwd("/Users/taka/Documents/GitHub/PadgettProject")
+data <- read.csv("data/TblWordFish_FullDB.csv", stringsAsFactors = F) #"preCiompi_wordFrequenciesPerSpeech_AddData2.csv"
 data <- subset(data, meet_type!="c")
 #data <- subset(data, meet_type == "r")
 #data <- subset(data, is.na(office.num.2))
